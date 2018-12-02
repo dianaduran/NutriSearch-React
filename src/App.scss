@@ -1,0 +1,167 @@
+$colors:(
+  primary: #005DFF,
+  primary-light:lighten(#005DFF, 40%),
+  primary-dark:darken(#005DFF, 40%),
+  white:#fff,
+  wheat: wheat,
+);
+
+@function color($color-name){
+   @return map-get($colors, $color-name)
+}
+
+$padding:15px;
+$borders:15px;
+$desktop:840px;
+
+@mixin desktop{
+    @media (min-width: #{$desktop}){
+        @content;
+    }
+}
+
+body, html{
+   height: 100%;
+}
+
+
+body{
+
+   margin: 0;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+   .container{
+      clip-path: polygon(0 0, 100% 76%, 53% 100%, 0 100%, 0 0);
+      background-color: color(primary);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+
+      @include desktop{
+         clip-path: polygon(0 0, 100% 0, 105% 100%, 0% 100%);
+      }
+   }
+
+  .main{
+     
+   h1{
+         text-align: center;
+         color:color(primary);
+         background: color(white);
+         padding: $padding;
+         text-transform: uppercase;
+         }
+
+      .div-search{
+            text-align: center;
+            margin: 15px;
+
+            input{
+               padding: 0.56rem;
+               border-radius: 0.5rem;
+               border-color: color(primary);
+               :focus {
+                  outline: 0;
+                  }
+            }
+           .btn-search{
+              display: inline;
+           } 
+        }
+
+        
+      .call-outs-container{
+         max-width: 1400px;
+         margin: 40px auto 0 auto;
+       }
+     
+     .call-out{
+         padding: 20px;
+         box-sizing: border-box;
+         margin-bottom: 20px;
+         flex-basis: 45%;
+         color: color(wheat)
+     }
+
+   //   table style
+   /* Nutrient table*/
+
+.table-container {
+   border: color(white) 1px solid;
+   padding: 5px;
+  }
+.text-right{
+   text-align: right
+}  
+
+.hr-ntrFacts {
+   border: color(white) 4.5px solid;
+   margin-top: 2px;
+}
+
+.hr-sugar{
+   margin-left: 15px
+}
+.hr-cal {
+   border: color(white) 3px solid;
+   margin: 1px;
+}
+
+.hr-space {
+   border: color(white) 1px solid;
+   margin-bottom: 1px;
+   margin-top: 1px;
+}
+
+.nutrients {
+   margin: 1px 1px;
+   font-weight: bold;
+}
+
+.sugar-class {
+   font-weight: 100;
+   margin-left: 15px;
+   /*font-style: italic;*/
+}
+
+span {
+   font-weight: 100;
+   /*font-style: italic;*/
+}
+
+h3 {
+   background: color(white);
+   color:color(primary);
+   padding: 13px;
+   font-weight: bold;
+   text-align: center;
+}
+
+.nameFood.title {
+   line-height: 50px;
+   font-size: 24pt;
+   padding-bottom: 2px;
+   white-space: nowrap;
+   letter-spacing: 0px;
+   font-weight: bold;
+   text-align: center;
+   margin: 5px 5px 5px;
+
+}
+
+.nameFood {
+   font-family: fantasy;
+}
+
+    @include desktop{
+            // clip-path: polygon(0 0, 79% 0, 37% 100%, 0% 100%);
+
+            .call-outs-container{
+               display: flex;
+               justify-content: space-between;
+            } 
+        }
+   }
+}
+
